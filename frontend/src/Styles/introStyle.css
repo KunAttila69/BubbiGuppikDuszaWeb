@@ -1,0 +1,192 @@
+:root{
+    --expand-width: 400px;
+    --picture-dimensions: 165px;
+}
+
+/* Setting basics */
+#intr-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+/* ------------------- */
+/* "Header" content */
+#intr-content h1{
+    font-weight: 600;
+    animation: slide-in-fwd-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+}
+#intr-hr{
+    border: 2px solid gold;
+    animation: expandHR 0.2s ease-in-out 3s forwards;
+    visibility: hidden;
+}
+/* ------------------- */
+/* The structure */
+#intr-team{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#intr-row{
+    display: flex;
+    align-items: center;
+    gap: 250px; 
+}
+
+#intr-spacer{
+    animation: expand 1s ease-in-out 1s forwards;
+}
+
+#intr-data{
+    width: 250px;
+    animation: slide-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    text-align: top;
+}
+
+/* ------------------- */
+/* The pictures */
+#intr-pictureFrame{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--picture-dimensions);
+    height: var(--picture-dimensions);
+    overflow: hidden;
+    transform: rotate(45deg);
+    border: 2px solid gold;
+    animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+#intr-picture1{
+    background-image: url(../Media/Nagy_Martin.jpg);
+}
+#intr-picture2{
+    background-image: url(../Media/Kun_Attila.jpg);
+}
+#intr-picture3{
+    background-image: url(../Media/Prem_Ferenc.jpg);
+}
+#intr-picture4{
+    background-image: url(../Media/Hagymasi_Gyula.jpg);
+}
+
+#intr-picture1, #intr-picture2, #intr-picture3, #intr-picture4{
+    width: 141%;
+    height: 141%;
+    background-size: contain;
+    transform: rotate(-45deg);
+    flex-shrink: 0;
+}
+
+ @keyframes slide-in-blurred-top {
+    0% {
+      transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+      transform-origin: 50% 0%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+      transform: rotate(45deg);
+    }
+  }
+  
+@keyframes expand {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: var(--expand-width);
+    }
+}
+
+ @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+  @keyframes expandHR {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 80px;
+        visibility: visible;
+    }
+}
+
+@keyframes slide-in-fwd-top {
+    0% {
+      transform: translateZ(-1400px) translateY(-800px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateZ(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+@media screen and (max-width: 992px) {
+    :root{
+        --expand-width: 300px;
+        --picture-dimensions: 135px;
+    }
+    #intr-content{
+        font-size: medium;
+    }
+    #intr-pictureFrame{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root{
+        --expand-width: 300px;
+        --picture-dimensions: 110px;
+    }
+    #intr-content{
+        font-size: small;
+    }
+    #intr-pictureFrame{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root{
+        --expand-width: 200px;
+        --picture-dimensions: 100px;
+    }
+    #intr-content{
+        font-size: smaller;
+    }
+    #intr-pictureFrame{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    hr,#intr-spacer{
+        display: none;
+    }
+    #intr-row{
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 9px;
+    }
+}

@@ -1,0 +1,70 @@
+/* Setting basics throughout the project.*/
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+body{
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  background-color: #101010;
+  color: #EAEAEA;
+  overflow-x: hidden;
+  font-family: 'Titillium Web', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+
+/* index/home */
+/* ------------- */
+.index-content{}
+
+.index-navbar{
+  padding: 1vw;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#index-login-btn{
+  width: fit-content;
+  color: white;
+  background-color: #101010;
+  border-radius: 50%;
+  margin: 2vh 10vw;
+}
+
+#index-login-btn span{
+  color: gold;
+  filter: blur(2px);
+}
+
+#index-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 75%;
+  font-weight: 600;
+  font-style: italic;
+}
+#index-main h1{
+  text-decoration: underline #AD974F;
+  text-underline-offset: 15px;
+  text-align: center; 
+}
+#index-main p{
+  text-align: center;
+  font-size: large;
+}
+/* ------------- */
+
+.game-table{
+  & tr{
+    color: white;
+    width: 200px;
+    & td{
+      padding: 15px;
+      margin: 0;
+      background-color: gray;
+    }
+  }
+}
