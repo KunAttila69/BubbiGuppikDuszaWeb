@@ -1,11 +1,7 @@
 import { useState } from "react";
-import CreatePuzzle from "./Modals/CreatePuzzle";
 
-const TeacherDashBoard = () => {
-    const [modalOpen, setModalOpen] = useState(false)
-    const closeModal = () => {
-        setModalOpen(false)
-    }
+const TeacherDashBoard = () => { 
+    const [creatingPuzzle, setCreatingPuzzle] = useState(false)
     const puzzles = [
         {
             "id":"1",
@@ -18,31 +14,17 @@ const TeacherDashBoard = () => {
             "shuffled":"duplo"
         }
     ]
-    const teams = [
-        {
-            "name":"ASd",
-            "members":["1","2","e"],
-            "desc":"asdasdsadasdasdas"
-        },
-        {
-            "name":"ASd2",
-            "members":["1a","2g","e"],
-            "desc":"asdasasdbbndsadasdasdas"
-        }
-    ]
+
     return ( 
-        <div className="content">
-            {modalOpen && <CreatePuzzle closeModal={closeModal()}/>}
+        <div className="content"> 
             <div className="data-container">
                 <table className="puzzle-table">
-                    <th>
-                        <button>Create</button>
-                    </th>
+                    
                     <tr>
                         <td>Puzzle ID</td>
                         <td colSpan={3}>Words</td>
                         <td>Shuffled Word</td>
-                        <td>Delete</td>
+                        <td><button onClick={() => setCreatingPuzzle(true)}>Create</button></td>
                     </tr>
                     {puzzles.map((puzzle)=>{
                         return (<tr>
@@ -56,26 +38,16 @@ const TeacherDashBoard = () => {
                             <td><button>Delete</button></td>
                         </tr>)
                     })}
+                    {creatingPuzzle && <tr>
+                            <td>{puzzles.length+1}</td>
+                            <td><input type="text"/></td>
+                            <td><input type="text"/></td>
+                            <td><input type="text"/></td>
+                            <td><input type="text"/></td>
+                            <td><button>Add</button></td>
+                    </tr>}
                 </table>
 
-                <table className="team-table">
-                    <tr>
-                        <td>Team name</td>
-                        <td colSpan={3}>Members</td>
-                        <td>Team description</td>
-                    </tr>
-                    {teams.map((team)=>{
-                        return (<tr>
-                            <td>{team.name}</td>
-                            {
-                                team.members.map((member)=>{
-                                   return <td>{member}</td>
-                                })
-                            }
-                            <td>{team.desc}</td>
-                        </tr>)
-                    })}
-                </table>
             </div>
         </div>
     );

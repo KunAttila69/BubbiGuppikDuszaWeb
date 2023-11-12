@@ -3,13 +3,13 @@ import '../Styles/index.css';
 
 const HomePage = () => {
     return ( 
-        <div className="index-content">
-            <div className="index-navbar">
+        <div id="index-content">
+            <div id="index-navbar">
                 <Link to={"/introduction"}>
-                    <div id="index-login-btn"> <span>&#x25CF;</span> Rólunk <span>&#x25CF;</span></div>
+                <button id="nav_btn">Rólunk</button>
                 </Link>
                 <Link to={"/login"}>
-                    <div id="index-login-btn"> <span>&#x25CF;</span> Login <span>&#x25CF;</span></div>
+                <button id="nav_btn">Bejelentkezés</button>
                 </Link>
             </div>
             <div id="index-content">

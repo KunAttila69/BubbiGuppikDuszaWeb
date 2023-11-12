@@ -4,37 +4,62 @@ body{
   margin: 0;
   padding: 0;
   height: fit-content;
-  background-color: #101010;
+  background-color: #212121;
   color: #EAEAEA;
   overflow-x: hidden;
   font-family: 'Titillium Web', sans-serif;
 }
 a{
   text-decoration: none;
+  color: #EAEAEA;
 }
 
 /* index/home */
-/* ------------- */
-.index-content{}
-
-.index-navbar{
-  padding: 1vw;
-  width: 100%;
+#index-navbar{
+  width: 55vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  background-color: goldenrod;
+  border-radius: 7px;
+  margin: 40px 0 40px auto;
+  position: relative;
+  box-shadow: 5px 25px 50px black;
 }
+
 
 #index-login-btn{
   width: fit-content;
-  color: white;
-  background-color: #101010;
-  border-radius: 50%;
+  color: black;
   margin: 2vh 10vw;
+  font-weight: 600;
 }
 
-#index-login-btn span{
-  color: gold;
-  filter: blur(2px);
+#nav_btn {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
+
+#nav_btn {
+  background: transparent;
+  color:black;
+  box-shadow: 0px 3px 5px black;
+  margin: 15px;
+}
+
+#nav_btn:hover {
+  color: white;
+  background-color: black;
+  box-shadow: 
+    0 0 25px white,
+    0 0 100px white;
+    cursor: pointer;
 }
 
 #index-main{
@@ -43,7 +68,6 @@ a{
   justify-content: center;
   margin: auto;
   width: 75%;
-  font-weight: 600;
   font-style: italic;
 }
 #index-main h1{
@@ -53,10 +77,114 @@ a{
 }
 #index-main p{
   text-align: center;
-  font-size: large;
+  font-size: larger;
 }
-/* ------------- */
 
+@media screen and (max-width: 992px) {
+  #nav_btn{
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #index-navbar{
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #index-navbar{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ------------- */
+/* Login, Register*/
+
+#login-content, #register-content{
+  background-color: white;
+  width: 35vw;
+  margin: auto;
+  padding: 25px;
+}
+#login-content form, #register-content form{
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 15px;
+}
+#login-content a, #register-content a{
+  color: black;
+  text-decoration: 3px gold underline;
+  text-underline-offset: 10px;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+
+.login-input, .register-input{
+  width: 400px;
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #303030;
+  border-bottom: 2px solid #9a9a9a;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #2d2d2d;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.login-input::placeholder, .register-input::placeholder{
+  color: gold;
+}
+
+.login-input:active, .register-input:active
+.login-input:focus, .register-input:focus {
+  background-color: #1e1f20;
+  outline: 3px solid gold;
+}
+
+#login-btn{
+  background-color: #212121;
+  color: white;
+  border: 2px solid gold;
+  border-radius: 7px;
+  padding: 15px 25px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+#login-btn:hover{
+  cursor: pointer;
+  box-shadow: 5px 0px 25px black;
+  border: 2px solid white;
+  color: gold;
+}
+
+#login-register-btn{
+  width: fit-content;
+  transition: all 0.2s ease-in-out;
+}
+
+#login-register-btn:hover{
+  scale: 1.2;
+}
+#login-register-btn:hover a{
+  text-decoration: none;
+}
+
+/* ------------- */
+/* Registration */
+
+#register-class-content{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ------------- */
 .game-table{
   & tr{
     color: white;
